@@ -14,7 +14,7 @@ public class TransacaoServiceImpl implements TransacaoService {
 
     @Override
     public Transacao post(Transacao transacao) {
-        transacoes.add(transacao);
+        TransacaoRepository.transacoes.add(transacao);
         repository.post(transacao);
 
         return transacao;
@@ -22,6 +22,7 @@ public class TransacaoServiceImpl implements TransacaoService {
 
     @Override
     public void delete() {
-        transacoes.clear();
+        TransacaoRepository.transacoes.clear();
+        repository.delete();
     }
 }

@@ -1,4 +1,8 @@
 package tech.andlmat.transacaoAPI.service;
 
-public class EstatisticaService {
+import tech.andlmat.transacaoAPI.domain.Estatistica;
+
+public interface EstatisticaService {
+
+    Estatistica get(String intervaloDeTempoEmSegundos);
 }
