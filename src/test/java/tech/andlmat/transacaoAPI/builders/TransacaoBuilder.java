@@ -19,7 +19,7 @@ public class TransacaoBuilder {
 
     private static void inicializacaoPadrao(TransacaoBuilder transacaoBuilder) {
         transacaoBuilder.valor = 100.0;
-        transacaoBuilder.dataHora = OffsetDateTime.now().minusHours(1);
+        transacaoBuilder.dataHora = OffsetDateTime.now();
     }
 
     public TransacaoBuilder comValor(Double valor) {

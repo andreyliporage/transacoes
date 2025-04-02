@@ -22,6 +22,8 @@ public class EstatisticaServiceImpl implements EstatisticaService {
         var listaTransacoesIntervaloDeTempo = TransacaoRepository.transacoes.stream().filter(x ->
                 x.getDataHora().isAfter(ultimos60Segundos)).toList();
 
+        if (listaTransacoesIntervaloDeTempo.isEmpty())
+            return new Estatistica(0, 0.0, 0.0, 0.0, 0.0);
         return new Estatistica(listaTransacoesIntervaloDeTempo);
     }
 }
