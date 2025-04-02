@@ -10,6 +10,6 @@ public interface TransacaoRepository {
     Transacao post(Transacao transacao);
     void delete();
     List<Transacao> get();
-    List<Transacao> transacoes = new ArrayList<>();
+
 
 }

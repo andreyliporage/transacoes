@@ -1,28 +1,23 @@
 package tech.andlmat.transacaoAPI.service.impl;
 
+import org.springframework.stereotype.Service;
 import tech.andlmat.transacaoAPI.domain.Transacao;
 import tech.andlmat.transacaoAPI.infra.TransacaoRepository;
 import tech.andlmat.transacaoAPI.service.TransacaoService;
 
+@Service
 public class TransacaoServiceImpl implements TransacaoService {
 
-    private TransacaoRepository repository;
-
-    public TransacaoServiceImpl(TransacaoRepository repository) {
-        this.repository = repository;
-    }
 
     @Override
     public Transacao post(Transacao transacao) {
-        TransacaoRepository.transacoes.add(transacao);
-        repository.post(transacao);
+        TransacaoService.transacoes.add(transacao);
 
         return transacao;
     }
 
     @Override
     public void delete() {
-        TransacaoRepository.transacoes.clear();
-        repository.delete();
+        TransacaoService.transacoes.clear();
     }
 }

@@ -22,7 +22,7 @@ public class TransacaoServiceTest {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
-        TransacaoRepository.transacoes.add(TransacaoBuilder.umaTransacao().build());
+        TransacaoService.transacoes.add(TransacaoBuilder.umaTransacao().build());
     }
 
     @Test
@@ -35,16 +35,16 @@ public class TransacaoServiceTest {
 
         service.post(transacao);
 
-        Assertions.assertEquals(2, TransacaoRepository.transacoes.size());
+        Assertions.assertEquals(2, TransacaoService.transacoes.size());
     }
 
     @Test
     @DisplayName("Deve limpar lista de transação")
     public void deveLimparListaDeTransacao() {
-        Assertions.assertEquals(1, TransacaoRepository.transacoes.size());
+        Assertions.assertEquals(1, TransacaoService.transacoes.size());
 
         service.delete();
 
-        Assertions.assertEquals(0, TransacaoRepository.transacoes.size());
+        Assertions.assertEquals(0, TransacaoService.transacoes.size());
     }
 }

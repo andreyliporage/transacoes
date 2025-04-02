@@ -28,12 +28,12 @@ public class EstatisticaServiceTest {
         var transacao01 = TransacaoBuilder.umaTransacao().comValor(120.0).comDataHora(OffsetDateTime.now()).build();
         var transacao02 = TransacaoBuilder.umaTransacao().comValor(77.0).comDataHora(OffsetDateTime.now()).build();
 
-        TransacaoRepository.transacoes.addAll(Arrays.asList(transacao01, transacao02));
+        TransacaoService.transacoes.addAll(Arrays.asList(transacao01, transacao02));
     }
 
     @AfterEach
     public void tearDown() {
-        TransacaoRepository.transacoes.clear();
+        TransacaoService.transacoes.clear();
     }
 
     public EstatisticaServiceTest() {
@@ -88,7 +88,7 @@ public class EstatisticaServiceTest {
         var transacaoComMaisDe60Segundos02 = TransacaoBuilder.umaTransacao().comDataHora(OffsetDateTime.now().minusSeconds(120)).build();
         var transacao04 = TransacaoBuilder.umaTransacao().comValor(300.0).build();
 
-        TransacaoRepository.transacoes.addAll(Arrays.asList(transacaoComMaisDe60Segundos01, transacao03, transacao04, transacaoComMaisDe60Segundos02));
+        TransacaoService.transacoes.addAll(Arrays.asList(transacaoComMaisDe60Segundos01, transacao03, transacao04, transacaoComMaisDe60Segundos02));
 
         Estatistica estatistica = service.get("60");
 
@@ -106,7 +106,7 @@ public class EstatisticaServiceTest {
         var transacaoComMaisDe60Segundos02 = TransacaoBuilder.umaTransacao().comDataHora(OffsetDateTime.now().minusSeconds(120)).build();
         var transacao04 = TransacaoBuilder.umaTransacao().comValor(300.0).build();
 
-        TransacaoRepository.transacoes.addAll(Arrays.asList(transacaoComMaisDe60Segundos01, transacao03, transacao04, transacaoComMaisDe60Segundos02));
+        TransacaoService.transacoes.addAll(Arrays.asList(transacaoComMaisDe60Segundos01, transacao03, transacao04, transacaoComMaisDe60Segundos02));
 
         Estatistica estatistica = service.get("120");
 
@@ -119,11 +119,11 @@ public class EstatisticaServiceTest {
     @Test
     @DisplayName("Deve retornar estatística com valores zerados")
     public void deveRetornarEstatisticaComValoresZerados() {
-        TransacaoRepository.transacoes.clear();
+        TransacaoService.transacoes.clear();
         var transacaoComMaisDe60Segundos01 = TransacaoBuilder.umaTransacao().comValor(99.7).comDataHora(OffsetDateTime.now().minusSeconds(120)).build();
         var transacaoComMaisDe60Segundos02 = TransacaoBuilder.umaTransacao().comDataHora(OffsetDateTime.now().minusSeconds(120)).build();
 
-        TransacaoRepository.transacoes.addAll(Arrays.asList(transacaoComMaisDe60Segundos01, transacaoComMaisDe60Segundos02));
+        TransacaoService.transacoes.addAll(Arrays.asList(transacaoComMaisDe60Segundos01, transacaoComMaisDe60Segundos02));
 
         Estatistica estatistica = service.get("60");
 
