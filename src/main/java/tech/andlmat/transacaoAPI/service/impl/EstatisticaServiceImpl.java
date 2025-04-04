@@ -2,7 +2,6 @@ package tech.andlmat.transacaoAPI.service.impl;
 
 import org.springframework.stereotype.Service;
 import tech.andlmat.transacaoAPI.domain.Estatistica;
-import tech.andlmat.transacaoAPI.infra.TransacaoRepository;
 import tech.andlmat.transacaoAPI.service.EstatisticaService;
 import tech.andlmat.transacaoAPI.service.TransacaoService;
 
